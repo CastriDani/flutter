@@ -1,4 +1,4 @@
-import 'package:test/test.dart';
+
 
 void main(List<String> arguments) {
   // MAP #1
@@ -79,7 +79,7 @@ print(products.values.toList());
 
   // MAP #3
 
-  final user = <String, Object>{
+  final user = <String, dynamic>{
     'name': 'Daniel',
     'lastName': 'Castrillon',
     'age': 19,
@@ -104,5 +104,19 @@ print(products.values.toList());
 
 
   print('age : ${user['age']}');
-  print('age : ${user['email']}');
+  print('email : ${user['email']}');
+  print(user['location']['country']);
+
+
+/*Este si el el valor es estilo Object para poder acceder */
+  final location = user['location'];
+  final country = (location as Map<String, String>)['country'];
+  print(country);
+
+
+  final List<Map<String,dynamic>> pets = user['pets'];
+  pets.indexWhere;
+
+  print(user['pets'][0]['name']);
+  
 }
